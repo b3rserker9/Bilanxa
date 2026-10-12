@@ -18,20 +18,29 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Share useful VS Code configuration, exclude personal workspace files.
+/.vscode/*
+!/.vscode/launch.json
+!/.vscode/tasks.json
+!/.vscode/settings.json
+!/.vscode/extensions.json
+*.code-workspace
 
 # Flutter/Dart/Pub related
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
+.flutter-plugins
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+# Covers both Flutter output and nested Android/Gradle build directories.
+**/build/
 /coverage/
+**/.gradle/
+**/.kotlin/
+**/.cxx/
+**/.externalNativeBuild/
 
 # Symbolication related
 app.*.symbols
@@ -51,7 +60,24 @@ app.*.map.json
 /android/app/google-services.json
 /ios/Runner/GoogleService-Info.plist
 **/service-account*.json
+**/*service_account*.json
+**/*firebase-adminsdk*.json
 *.jks
 *.keystore
+*.p12
+*.pfx
+*.pem
 android/key.properties
-config/*.private.json
+
+# Keep the checked-in demo/production templates; other config JSON is local.
+/config/*.json
+!/config/local.json
+!/config/production.json
+
+# Environment files and local Firebase tooling output.
+.env
+.env.*
+!.env.example
+!.env.sample
+.firebase/
+firebase-debug.*

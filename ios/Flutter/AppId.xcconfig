@@ -1,0 +1,2 @@
+// Override through xcodebuild BILANQO_APP_ID=your.registered.id
+BILANQO_APP_ID = com.bilanqo.bilanqo
